@@ -1,5 +1,5 @@
-var images = ["bird1.jpg", "bird2.jpg", "bird3.jpg", "bird4.jpg", "dog1.jpg", "dog2.jpg", "dog3.jpg", "dog4.jpg"
-				, "bird1.jpg", "bird2.jpg", "bird3.jpg", "bird4.jpg", "dog1.jpg", "dog2.jpg", "dog3.jpg", "dog4.jpg"];
+var images = ["bird1.jpg", "bird2.jpg", "bird3.jpg", "bird4.jpg", "dog1.jpg", "dog2.jpg", "dog3.jpg", "dog4.jpg",
+			 "bird1.jpg", "bird2.jpg", "bird3.jpg", "bird4.jpg", "dog1.jpg", "dog2.jpg", "dog3.jpg", "dog4.jpg"];
 const $board = $('.game');
 
 let image_clicked_one;
@@ -26,8 +26,9 @@ function closeModal() {
 * @returns {array} array
 */
 function shuffle(array) {
-    let currentIndex = array.length
-        , temporaryValue, randomIndex;
+    let currentIndex = array.length;
+    let temporaryValue;
+    let randomIndex;
 
     while (0 !== currentIndex) {
         randomIndex = Math.floor(Math.random() * currentIndex);
