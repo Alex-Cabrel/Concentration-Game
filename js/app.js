@@ -8,11 +8,7 @@ var number_of_moves;
 var total_successful_swaps;
 var game_started;
 var timer;
-
-
-
-$('.modal').css({"display":"block"});
-
+var time_value;
 
 // Used to close modal
 function closeModal() {
@@ -46,6 +42,13 @@ function MemoryGame() {
     number_of_moves = 0;
     total_successful_swaps = 0;
 
+    //Initialise starts to 3
+    $('.star3').show();
+    $('.star2').show();
+
+    // Ensure modal is closed especially when user chooses to play again.
+    closeModal();
+
     var cards = shuffle(images); // shuffle images
 
     //empties the gameboard. this is very essential when player refreshes
@@ -63,6 +66,7 @@ function MemoryGame() {
     }
 
     // Initializes game timer to zero
+    clearInterval(timer);
     $(".time-played").text('0:0:00');
 
     //Initialize moves output
@@ -96,9 +100,13 @@ function addOnclickEvent(id) {
 
                     if (total_successful_swaps == images.length / 2) {
 
-                        modal.style.display = "block";
+                        clearInterval(timer);
+                        $('.modal').css({"display":"block"});
                         $('.moves_stats').text(number_of_moves + total_successful_swaps);
-                        $('.time_stats').text(timer);
+
+                        $('.time_stats').text(time_value);
+
+
                     }
                 } else{
                     number_of_moves += 1;
@@ -135,6 +143,8 @@ const GameTimer = () => {
         var hrs = Math.floor((current_time_played % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var mins = Math.floor((current_time_played % (1000 * 60 * 60)) / (1000 * 60));
         var secs = Math.floor((current_time_played % (1000 * 60)) / 1000);
+
+        time_value = hrs + ' hours  ' + mins +' mins  ' + secs + ' secs  ';
 
         if (secs < 10) {
             secs = '0' + secs;
