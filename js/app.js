@@ -9,6 +9,7 @@ let total_successful_swaps;
 let game_started;
 let timer;
 let time_value;
+let hidden_stars;
 
 
 /**
@@ -45,10 +46,11 @@ function shuffle(array) {
 */
 function MemoryGame() {
     // Initialising variables
+    hidden_stars = 0;
+    number_of_moves = 0;
     game_started = false;
     image_clicked_one = false;
     image_clicked_two = false;
-    number_of_moves = 0;
     total_successful_swaps = 0;
 
     //Initialise stars to 3 stars in case the game had already began
@@ -121,7 +123,7 @@ function addOnclickEvent(id) {
                         clearInterval(timer);
                         $('.modal').css({"display":"block"}); // display modal if gave is over
                         $('.moves_stats').text(number_of_moves + total_successful_swaps);
-
+                        $('.num_of_stars').text(3-hidden_stars);
                         $('.time_stats').text(time_value);
 
 
@@ -141,9 +143,13 @@ function addOnclickEvent(id) {
                 // update moves and reduce stars accordingly
                 const moves = number_of_moves + total_successful_swaps;
                 $(".moves-played").text(moves);
+
                 if (moves == 10) {
+                    hidden_stars += 1
                     $('.star3').hide();
-                } else if (moves == 14) {
+                }
+                else if (moves == 14) {
+                    hidden_stars += 1;
                     $('.star3').hide();
                     $('.star2').hide();
                 }

@@ -25,7 +25,7 @@
 		<span class="stars">
 			<input type="radio" id="star3" name="rating" value="3" /><label for="star3" class="star3">3 stars</label>
 		    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" class="star2">2 stars</label>
-		    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" class="star1">1 star</label> 
+		    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" class="star1">1 star</label>
 		</span>
 
 		<span class="timer">
@@ -38,7 +38,7 @@
 		</span>
 
 		<span class="refresh">
-			<h4> <input type="button" value="Refresh Game" onClick="MemoryGame()"> </h4>
+			<h4> <input type="button" value="Restart Game" onClick="MemoryGame()"> </h4>
 		</span>
 
 	</div>
@@ -49,9 +49,10 @@
 	  <!-- Modal content -->
 	  <div class="modal-content">
 
-	    <h2>Congratulations... You completed the Game. </h2>
-	    <h4>Time Taken: <span class="time_stats">3mins</span></h4>
-	    <h4>Number of Moves Used: <span class="moves_stats">4</span></h4>
+	    <h4>Congratulations... You completed the Game. </h4>
+	    <p>Star Rating: <span class="num_of_stars">4</span></p>
+	    <p>Time Taken: <span class="time_stats">3mins</span></p>
+	    <p>Number of Moves Used: <span class="moves_stats">4</span></p>
 	    <input type="button" value="Play Again" class="playagain" onClick="MemoryGame()">
 	    <input type="button" value="Cancel" class="close" onClick="closeModal()">
 
