@@ -22,9 +22,9 @@ The board is made up of 8 different pairs of cards, each with different animals 
 
 ## Implementation.
 The project is made up of three folder and one file in the repository.
- ### index.html -> This file defines html tags used to render the game on the browser. It links the jquery library, bootstrap font-awesome style shee, our local defined style shee (style.css) and our local javascript (app.js)
-  ### js -> This folder contains our java script file (app.js) This file has all client based functions defined in it.
-  		* The MemoryGame function that initializes the game and creates a new game board.
-  		* The GameTimer function which keeps track of time (counter) from the start of the game to the end.
-  		* The shuffle function which is used to shuffle the deck of cards
-  ### css -> This folder contains the style sheet file used to decorate the html.
+ *index.html -> This file defines html tags used to render the game on the browser. It links the jquery library, bootstrap font-awesome style shee, our local defined style shee (style.css) and our local javascript (app.js)
+ *js -> This folder contains our java script file (app.js) This file has all client based functions defined in it.
+  		** The MemoryGame function that initializes the game and creates a new game board.
+  		** The GameTimer function which keeps track of time (counter) from the start of the game to the end.
+  		** The shuffle function which is used to shuffle the deck of cards
+  * css -> This folder contains the style sheet file used to decorate the html.
