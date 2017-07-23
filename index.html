@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Concentration Game Udacity training">
+	<meta name="author" content="Alex Codes">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+	<title> Memory Game </title>
+
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div class="header">
+		<h1 class="title"> Concentration Game </h1>
+	</div>
+
+	<div class="dashboard">
+		<span class="stars">
+			<input type="radio" id="star3" name="rating" value="3" /><label for="star3" class="star3">3 stars</label>
+		    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" class="star2">2 stars</label>
+		    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" class="star1">1 star</label> 
+		</span>
+
+		<span class="timer">
+			<h4> Time Used: <span class="time-played"></span>
+			</h4>
+		</span>
+
+		<span class="moves">
+			<h4> Moves Made: <span class="moves-played">0</span>
+		</span>
+
+	</div>
+
+	<div class="game">
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

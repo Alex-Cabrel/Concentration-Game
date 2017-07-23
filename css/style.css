@@ -1,0 +1,151 @@
+.header{
+  margin: 5px 0 5px;
+  color: #ffcb05;
+  text-align: center;
+  font: 30px 'Pokemon Solid', Helvetica, Arial, Sans-Serif;
+  -webkit-text-stroke: 5px #3c5aa6;
+}
+.dashboard{
+  padding-left: 20em;
+  padding-right: 20em;
+  padding-bottom: 2em;
+  margin-bottom: 5%;
+}
+.stars {
+    float:left;
+}
+
+.timer{
+  position: absolute;
+  font-size:100%;
+  line-height:0.3;
+  padding-left: 5em;
+}
+.moves{
+  position: absolute;
+  font-size: 100%;
+  line-height: 0.3;
+  padding-left: 18em;
+}
+.stars:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.stars:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.stars:not(:checked) > label:before {
+    content: '★ ';
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+
+body {
+  background-color: #DFEFF5;
+  color: #3c5aa6;
+  font: 18px/24px Helvetica, Arial, Sans-Serif;
+}
+
+.game {
+  width: 1040px;
+  margin: 0 auto;
+  background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=0 ); /* IE6-9 */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.5);
+}
+
+.game .img-box {
+  height: 75px;
+  width: 100px;
+  display: inline-block;
+  margin: 0 30px 30px 0;
+  line-height: 280px;
+  font-size: 0;
+  color: #02b3e4;
+  text-align: center;
+  border-radius: 8px;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+  font-family: FontAwesome;
+  line-height: 150px;
+}
+
+.img-box-back,
+.img-box-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.img-box-front {
+  border: 2px solid #2a75bb;
+  background-color: #2e3d49;
+}
+
+.img_box-found{
+  border: 2px solid #02f73b;
+}
+
+.img-box-front img{
+  height: 75px;
+  width: 100px;
+}
+
+.img-box-back {
+  border: 2px solid #2a75bb;
+  background-color: #80868e;
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.img-box-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  margin: auto;
+  padding: 5%;
+  width: 100%;
+}
+
+/* click effect */
+.img-box.switch-side .img-box-front {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.img-box.switch-side .img-box-back {
+  -webkit-transform: rotateY(0);
+  transform: rotateY(0);
+}
