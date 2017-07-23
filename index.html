@@ -37,7 +37,28 @@
 			<h4> Moves Made: <span class="moves-played">0</span>
 		</span>
 
+		<span class="refresh">
+			<h4> <input type="button" value="Refresh Game" onClick="MemoryGame()"> </h4>
+		</span>
+
 	</div>
+
+
+	<div id="dialog" class="modal">
+
+	  <!-- Modal content -->
+	  <div class="modal-content">
+
+	    <h2>Congratulations... You completed the Game. </h2>
+	    <h4>Time Taken: <span class="time_stats">3mins</span></h4>
+	    <h4>Number of Moves Used: <span class="moves_stats">4</span></h4>
+	    <input type="button" value="Play Again" class="playagain" onClick="MemoryGame()">
+	    <input type="button" value="Cancel" class="close" onClick="closeModal()">
+
+	  </div>
+
+	</div>
+
 
 	<div class="game">
 	</div>
