@@ -31,3 +31,4 @@ The project is made up of three folder and one file in the repository.
 
  ### Resources
  * https://www.w3schools.com/howto/howto_js_countdown.asp
+ * http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
