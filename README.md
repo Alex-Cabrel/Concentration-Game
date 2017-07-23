@@ -28,3 +28,6 @@ The project is made up of three folder and one file in the repository.
   	* The GameTimer function which keeps track of time (counter) from the start of the game to the end.
   	* The shuffle function which is used to shuffle the deck of cards
   * css -> This folder contains the style sheet file used to decorate the html.
+
+ ### Resources
+ * https://www.w3schools.com/howto/howto_js_countdown.asp
