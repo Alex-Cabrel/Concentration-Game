@@ -144,11 +144,11 @@ function addOnclickEvent(id) {
                 const moves = number_of_moves + total_successful_swaps;
                 $(".moves-played").text(moves);
 
-                if (moves == 10) {
+                if (moves == 11) {
                     hidden_stars += 1
                     $('.star3').hide();
                 }
-                else if (moves == 14) {
+                else if (moves == 15) {
                     hidden_stars += 1;
                     $('.star3').hide();
                     $('.star2').hide();
