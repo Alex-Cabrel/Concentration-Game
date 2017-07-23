@@ -1,22 +1,31 @@
 var images = ["bird1.jpg", "bird2.jpg", "bird3.jpg", "bird4.jpg", "dog1.jpg", "dog2.jpg", "dog3.jpg", "dog4.jpg"
 				, "bird1.jpg", "bird2.jpg", "bird3.jpg", "bird4.jpg", "dog1.jpg", "dog2.jpg", "dog3.jpg", "dog4.jpg"];
-var $board = $('.game');
+const $board = $('.game');
 
-var image_clicked_one;
-var image_clicked_two;
-var number_of_moves;
-var total_successful_swaps;
-var game_started;
-var timer;
-var time_value;
+let image_clicked_one;
+let image_clicked_two;
+let number_of_moves;
+let total_successful_swaps;
+let game_started;
+let timer;
+let time_value;
 
-// Used to close modal
+
+/**
+* @description Closes the congratulation modal by hiding.
+*/
 function closeModal() {
     $('.modal').css({"display":"none"});
 }
 
+
+/**
+* @description Shuffles and array using the random function
+* @param {array} array
+* @returns {array} array
+*/
 function shuffle(array) {
-    var currentIndex = array.length
+    let currentIndex = array.length
         , temporaryValue, randomIndex;
 
     while (0 !== currentIndex) {
@@ -30,11 +39,11 @@ function shuffle(array) {
     return array;
 }
 
-function MemoryGame() {
-    /* Main Game function, this function gets shuffled images (cards)
-        and look over them to add on the game board.
-        */
 
+/**
+* @description This is the main game function, it adds cards to the board and initializes most variables
+*/
+function MemoryGame() {
     // Initialising variables
     game_started = false;
     image_clicked_one = false;
@@ -42,14 +51,14 @@ function MemoryGame() {
     number_of_moves = 0;
     total_successful_swaps = 0;
 
-    //Initialise starts to 3
+    //Initialise stars to 3 stars in case the game had already began
     $('.star3').show();
     $('.star2').show();
 
     // Ensure modal is closed especially when user chooses to play again.
     closeModal();
 
-    var cards = shuffle(images); // shuffle images
+    const cards = shuffle(images); // shuffle images
 
     //empties the gameboard. this is very essential when player refreshes
     $board.empty();
@@ -58,10 +67,10 @@ function MemoryGame() {
     for (var i = 0; i < cards.length; i++) {
         var image_name = cards[i].split('.');
         var image_id = image_name[0] + '-' + i.toString();
-        $board.append($('<span class="img-box" id=' + image_id + '><li class="img-box-front" id=' + image_id + 
+        $board.append($('<span class="img-box" id=' + image_id + '><li class="img-box-front" id=' + image_id +
         	'><img src="images/' + cards[i] + '"></li> <li class="img-box-back"></li></span>'));
 
-        // Binds onclick event to each card
+        // Binds onclick event to each board card
         addOnclickEvent(image_id);
     }
 
@@ -74,21 +83,30 @@ function MemoryGame() {
 };
 
 
+/**
+* @description This function binds an onclick event to each card handles all the game logic
+* @param {string} id
+*/
 function addOnclickEvent(id) {
-    /* This function binds an the click even to
-        each card to enable swapping
-        */
+    // adds onclick event to a card
     $('span#' + id).click(function () {
         if(!image_clicked_two){
-            $('#' + id).addClass('switch-side');
+            $('#' + id).addClass('switch-side'); // if a card is clicked, adds switch-side class to switch the card
+
+            // Test if the image clicked is the first image in a new move
             if (!image_clicked_one) {
                 image_clicked_one = id;
+                // start timer if this is the very first image clicked in the game.
                 if (!game_started) {
                     game_started = true;
                     GameTimer();
                 }
+
+            // Test if the image clicked in the second image in the current move
             } else{
                 image_clicked_two = id;
+
+                // if both image names are equal, the switch off the click even for that image.
                 if (image_clicked_two.split('-')[0] == image_clicked_one.split('-')[0]) {
                     $('span#'+image_clicked_one).off('click');
                     $('span#'+image_clicked_two).off('click');
@@ -98,16 +116,18 @@ function addOnclickEvent(id) {
                     image_clicked_one = false;
                     image_clicked_two = false;
 
-                    if (total_successful_swaps == images.length / 2) {
+                    if (total_successful_swaps == images.length / 2) { // this detects if all the match has been acheived
 
                         clearInterval(timer);
-                        $('.modal').css({"display":"block"});
+                        $('.modal').css({"display":"block"}); // display modal if gave is over
                         $('.moves_stats').text(number_of_moves + total_successful_swaps);
 
                         $('.time_stats').text(time_value);
 
 
                     }
+
+                // if two cards are not same, the cards are switched back by removing the switch-side class
                 } else{
                     number_of_moves += 1;
                     setTimeout(function () {
@@ -118,8 +138,8 @@ function addOnclickEvent(id) {
                     }, 500);
                 }
 
-                // update moves
-                var moves = number_of_moves + total_successful_swaps;
+                // update moves and reduce stars accordingly
+                const moves = number_of_moves + total_successful_swaps;
                 $(".moves-played").text(moves);
                 if (moves == 10) {
                     $('.star3').hide();
@@ -132,19 +152,23 @@ function addOnclickEvent(id) {
     });
 }
 
+
+/**
+* @description calculate time taken to complete a game
+*/
 const GameTimer = () => {
 
-    var game_start_time = new Date().getTime();
+    const game_start_time = new Date().getTime(); // get the current time when user clicked the first card
 
     timer = setInterval(function () {
 
-        var current_time = new Date().getTime();
-        var current_time_played = current_time - game_start_time;
-        var hrs = Math.floor((current_time_played % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var mins = Math.floor((current_time_played % (1000 * 60 * 60)) / (1000 * 60));
-        var secs = Math.floor((current_time_played % (1000 * 60)) / 1000);
+        let current_time = new Date().getTime();
+        let current_time_played = current_time - game_start_time; // calculate time elapsed
+        let hrs = Math.floor((current_time_played % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let mins = Math.floor((current_time_played % (1000 * 60 * 60)) / (1000 * 60));
+        let secs = Math.floor((current_time_played % (1000 * 60)) / 1000);
 
-        time_value = hrs + ' hours  ' + mins +' mins  ' + secs + ' secs  ';
+        time_value = hrs + ' hours  ' + mins +' mins  ' + secs + ' secs  '; // this is to display in the stats modal
 
         if (secs < 10) {
             secs = '0' + secs;
@@ -156,4 +180,4 @@ const GameTimer = () => {
 
 };
 
-MemoryGame();
+MemoryGame(); // Initialise game boad when am is opened.
