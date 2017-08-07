@@ -191,7 +191,7 @@ const GameTimer = () => {
 
         current_time_played = hrs + ':' + mins + ':' + secs;
         $(".time-played").text(current_time_played);
-    }, 750);
+    }, 500);
 
 };
 
