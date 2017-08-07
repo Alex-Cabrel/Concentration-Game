@@ -107,6 +107,14 @@ function addOnclickEvent(id) {
 
             // Test if the image clicked in the second image in the current move
             } else{
+                if (image_clicked_one){
+                    // This ensure that an image clicked twice should not be considered.                
+                    if (id == image_clicked_one)
+                    {
+                        return;
+                    }
+                }
+
                 image_clicked_two = id;
 
                 // if both image names are equal, the switch off the click even for that image.
