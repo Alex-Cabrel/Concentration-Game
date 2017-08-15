@@ -7,10 +7,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Concentration Game Udacity training">
 	<meta name="author" content="Alex Codes">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
 	<title> Memory Game </title>
+	
+	<script type="text/javascript">
+		// Internet Explorer 6-11
+		var isIE = /*@cc_on!@*/false || !!document.documentMode;
+		var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { 
+		            return p.toString() === "[object SafariRemoteNotification]"; 
+		            })(!window['safari'] || safari.pushNotification);
 
+
+		if(isIE || isSafari){
+		    alert("Your browser is not supported please use one of these popular browsers chrome / uc browser / firefox / microsoft edge / epiphany");
+		    window.close();
+		}
+	</script>
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link href="css/style.css" rel="stylesheet">
 
 </head>
@@ -22,24 +36,25 @@
 	</div>
 
 	<div class="dashboard">
-		<span class="stars">
+		<div class="stars">
 			<input type="radio" id="star3" name="rating" value="3" /><label for="star3" class="star3">3 stars</label>
 		    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" class="star2">2 stars</label>
 		    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" class="star1">1 star</label>
-		</span>
+		</div>
 
-		<span class="timer">
+		<div class="timer">
 			<h4> Time Used: <span class="time-played"></span>
 			</h4>
-		</span>
+		</div>
 
-		<span class="moves">
+		<div class="moves">
 			<h4> Moves Made: <span class="moves-played">0</span>
-		</span>
+			</h4>
+		</div>
 
-		<span class="refresh">
-			<h4> <input type="button" value="Restart Game" onClick="MemoryGame()"> </h4>
-		</span>
+		<div class="refresh">
+			<input type="button" value="Restart Game" onClick="MemoryGame()">
+		</div>
 
 	</div>
 
@@ -61,12 +76,12 @@
 	</div>
 
 
-	<div class="game">
-	</div>
+	<ul class="game">
+	</ul>
 
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js" type="text/javascript"></script>
 
-    <script src="js/app.js"></script>
+    <script src="js/app.js" type="text/javascript"></script>
 
 </body>
 

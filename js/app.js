@@ -1,5 +1,5 @@
 var images = ["bird1.jpg", "bird2.jpg", "bird3.jpg", "bird4.jpg", "dog1.jpg", "dog2.jpg", "dog3.jpg", "dog4.jpg",
-			 "bird1.jpg", "bird2.jpg", "bird3.jpg", "bird4.jpg", "dog1.jpg", "dog2.jpg", "dog3.jpg", "dog4.jpg"];
+             "bird1.jpg", "bird2.jpg", "bird3.jpg", "bird4.jpg", "dog1.jpg", "dog2.jpg", "dog3.jpg", "dog4.jpg"];
 const $board = $('.game');
 
 let image_clicked_one;
@@ -10,7 +10,6 @@ let game_started;
 let timer;
 let time_value;
 let hidden_stars;
-
 
 /**
 * @description Closes the congratulation modal by hiding.
@@ -71,7 +70,7 @@ function MemoryGame() {
         var image_name = cards[i].split('.');
         var image_id = image_name[0] + '-' + i.toString();
         $board.append($('<span class="img-box" id=' + image_id + '><li class="img-box-front" id=' + image_id +
-        	'><img src="images/' + cards[i] + '"></li> <li class="img-box-back"></li></span>'));
+            '><img src="images/' + cards[i] + '"></li> <li class="img-box-back"></li></span>'));
 
         // Binds onclick event to each board card
         addOnclickEvent(image_id);
@@ -130,9 +129,10 @@ function addOnclickEvent(id) {
                     if (total_successful_swaps == images.length / 2) { // this detects if all the match has been acheived
 
                         clearInterval(timer);
+                        const moves = number_of_moves + total_successful_swaps;
                         $('.modal').css({"display":"block"}); // display modal if gave is over
                         $('.moves_stats').text(number_of_moves + total_successful_swaps);
-                        $('.num_of_stars').text(3-hidden_stars);
+                        $('.num_of_stars').text(3- (moves==11 ? hidden_stars+1 : (moves==15 ? hidden_stars+1 : hidden_stars)));
                         $('.time_stats').text(time_value);
 
 
@@ -171,7 +171,7 @@ function addOnclickEvent(id) {
 /**
 * @description calculate time taken to complete a game
 */
-const GameTimer = () => {
+function GameTimer() {
 
     const game_start_time = new Date().getTime(); // get the current time when user clicked the first card
 
